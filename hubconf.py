@@ -41,5 +41,5 @@ def delivery_vehicles(verbose=True,device=None):
 			model.names = ckpt['model'].names # Set the class names attribute
 		return model.to(device)
 
-	except Exception as e
+	except Exception as e:
 		raise Exception(s) from e
