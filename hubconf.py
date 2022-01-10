@@ -12,17 +12,17 @@ def delivery_vehicles(verbose=True,device=None):
 	This is a YOLOv5 based model to detect various types of delivery vehicles - UPS, US Postal Service, etc
 	"""
 
-	check_requirements(exclude=('tensorboard','thop','opencv-python'))
-	set_logging(verbose=verbose)
-
-	channels = 1
-	classes = 4
-
 	from pathlib import Path
 	from models.yolo import Model
 	from utils.downloads import attempt_download
 	from utils.general import check_requirements, intersect_dicts, set_logging
 	from utils.torch_utils import select_device
+
+	check_requirements(exclude=('tensorboard','thop','opencv-python'))
+	set_logging(verbose=verbose)
+
+	channels = 1
+	classes = 4
 
 	# Path to the checkpoint
 	path = Path('delivery_vehicles.pt')
