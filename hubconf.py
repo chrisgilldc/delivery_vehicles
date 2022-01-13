@@ -19,7 +19,6 @@ def delivery_vehicles(verbose=True,device=None):
 	from utils.torch_utils import select_device
 
 	check_requirements(exclude=('tensorboard','thop','opencv-python'))
-	set_logging(verbose=verbose)
 
 	channels = 1
 	classes = 4
