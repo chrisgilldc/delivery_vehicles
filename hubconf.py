@@ -36,10 +36,8 @@ def delivery_vehicles(verbose=True,device=None):
 		#csd = ckpt['model'].float().state_dict() # Checkpoint state_dict as FP32
 		#csd = intersect_dicts(csd, model.state_dict(), exclude=['anchors']) # intersect
 		#model.load_state_dict(csd, strict=False) # Load
-		pickle.load = partial(pickle.load, encoding="latin1")
-		pickle.Unpickler = partial(pickle.Unpickler, encoding="latin1")
-		checkpoint = "https://drive.google.com/file/d/1cV1O7hlKjQZBtbdWFxfvuBBN6b0UjpmY/view?usp=sharing"
-		model.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint,progress=False,pickle_module=pickle))
+		checkpoint = "https://www.jumpbeacon.net/delivery_vehicles/delivery_vehicles_0.3.pt"
+		model.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint,progress=False))
 		if len(ckpt['model'].names) == classes:
 			model.names = ckpt['model'].names # Set the class names attribute
 		return model.to(device)
