@@ -32,10 +32,12 @@ def delivery_vehicles(verbose=True,device=None):
 		device = select_device(('0' if torch.cuda.is_available() else 'cpu') if device is None else device)
 		cfg = list((Path(__file__).parent).rglob(f'{path.stem}.yaml'))[0]  # model.yaml path
 		model = Model(cfg,channels,classes)
-		chkpt = torch.load(attempt_download(path), map_location=device)
-		csd = ckpt['model'].float().state_dict() # Checkpoint state_dict as FP32
-		csd = intersect_dicts(csd, model.state_dict(), exclude=['anchors']) # intersect
-		model.load_state_dict(csd, strict=False) # Load
+		#chkpt = torch.load(attempt_download(path), map_location=device)
+		#csd = ckpt['model'].float().state_dict() # Checkpoint state_dict as FP32
+		#csd = intersect_dicts(csd, model.state_dict(), exclude=['anchors']) # intersect
+		#model.load_state_dict(csd, strict=False) # Load
+		checkpoint = "https://drive.google.com/file/d/1cV1O7hlKjQZBtbdWFxfvuBBN6b0UjpmY/view?usp=sharing"
+		model.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint,progress=True))
 		if len(ckpt['model'].names) == classes:
 			model.names = ckpt['model'].names # Set the class names attribute
 		return model.to(device)
