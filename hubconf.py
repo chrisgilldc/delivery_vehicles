@@ -37,7 +37,7 @@ def delivery_vehicles(verbose=True,device=None):
 		#csd = intersect_dicts(csd, model.state_dict(), exclude=['anchors']) # intersect
 		#model.load_state_dict(csd, strict=False) # Load
 		checkpoint = "https://drive.google.com/file/d/1cV1O7hlKjQZBtbdWFxfvuBBN6b0UjpmY/view?usp=sharing"
-		model.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint,progress=True))
+		model.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint,progress=False))
 		if len(ckpt['model'].names) == classes:
 			model.names = ckpt['model'].names # Set the class names attribute
 		return model.to(device)
