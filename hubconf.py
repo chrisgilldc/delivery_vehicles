@@ -43,4 +43,4 @@ def delivery_vehicles(verbose=True,device=None):
 		return model.to(device)
 
 	except Exception as e:
-		raise Exception(s) from e
+		raise Exception from e
