@@ -36,7 +36,7 @@ def delivery_vehicles(verbose=True,device=None):
 		#csd = ckpt['model'].float().state_dict() # Checkpoint state_dict as FP32
 		#csd = intersect_dicts(csd, model.state_dict(), exclude=['anchors']) # intersect
 		#model.load_state_dict(csd, strict=False) # Load
-		checkpoint = "https://www.jumpbeacon.net/delivery_vehicles/delivery_vehicles_0.3.pt"
+		checkpoint = "https://www.jumpbeacon.net/delivery_vehicles/delivery_vehicles_0.4_sparseml.pt"
 		model.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint,progress=False))
 		if len(ckpt['model'].names) == classes:
 			model.names = ckpt['model'].names # Set the class names attribute
