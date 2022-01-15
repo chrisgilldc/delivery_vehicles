@@ -18,6 +18,9 @@ def delivery_vehicles(verbose=True,device=None):
 	from utils.general import check_requirements, intersect_dicts, set_logging
 	from utils.torch_utils import select_device
 
+	# Classes for the model. Currently 4 - Amazon, Fedex, UPS and USPS
+	classes = 4
+
 	# Try to create the model
 	try:
 		# Do we use a CUDA device?
