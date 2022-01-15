@@ -33,9 +33,6 @@ def delivery_vehicles(verbose=True,device=None):
 		csd = intersect_dicts(csd, model.state_dict(), exclude=['anchors'])
 		# Load in the merged state
 		model.load_state_dict(csd, strict=False)
-
-
-		model.load_state_dict(torch.hub.load_state_dict_from_url(checkpoint,progress=False))
 		if len(ckpt['model'].names) == classes:
 			model.names = ckpt['model'].names # Set the class names attribute
 		return model.to(device)
