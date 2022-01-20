@@ -4,6 +4,8 @@
 
 # Model to identify delivery vehicles!
 
+dependencies = ['torch','yolov5']
+
 import torch
 import pickle
 
