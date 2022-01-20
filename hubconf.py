@@ -12,7 +12,6 @@ def delivery_vehicles(verbose=True,device=None):
 	This is a YOLOv5 based model to detect various types of delivery vehicles - UPS, US Postal Service, etc
 	"""
 
-	from models.yolo import Model
 	from utils.general import intersect_dicts, set_logging
 	from utils.torch_utils import select_device
 
