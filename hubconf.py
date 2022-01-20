@@ -28,7 +28,7 @@ def delivery_vehicles(verbose=True,device=None):
 		# Set up the base yolov5 model
 		model = torch.hub.load('ultralytics/yolov5','yolov5s',classes=classes,device=device)
 		# Fetch the custom weights
-		checkpoint_url = "https://www.jumpbeacon.net/delivery_vehicles/delivery_vehicles_0.3.pt"
+		checkpoint_url = "https://www.jumpbeacon.net/delivery_vehicles/delivery_vehicles_0.4.pt"
 		ckpt = torch.hub.load_state_dict_from_url(checkpoint_url,map_location=device)
 		# Checkpoint state_dict as FP32
 		csd = ckpt['model'].float().state_dict()
